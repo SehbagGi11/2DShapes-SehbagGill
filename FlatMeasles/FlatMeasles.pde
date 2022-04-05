@@ -18,7 +18,7 @@ println(appWidth, appHeight); //Canvas Flexibility
 //Computer tells us the orientation, important for cell phone orientation
 //-tell user specific orientation
 //if ( appWidth >= appHeight ) {println("Landscape or Square");} else {println("Portrait");}
-String ls="Landscape or Square", p="Portrait", DO="Display Orientation:", instruct="Bru, turn your phun";
+String ls="Landscape or Square", p="Portrait", DO="Display Orientation:", instruct="Turn your phone bud";
 String orientation = ( appWidth >= appHeight ) ? ls : p; //Ternary Operator, repeats IF-ELSE
 println(DO, orientation); //Verification of value
 if ( orientation==p ) println(instruct);
@@ -26,6 +26,7 @@ if ( orientation==p ) println(instruct);
 //
 //Variable Population
 smallerGeometryDimension = appHeight; //user told to turn phun, always landscape or square
+reset = smallerGeometryDimension / smallerGeometryDimension; // returns "1" //default value for reseting parameters
 rectFaceX = appWidth*1/2 - smallerGeometryDimension*1/2;
 rectFaceY = appHeight*0;
 rectFaceWidth = smallerGeometryDimension;
@@ -43,7 +44,6 @@ mouthY1 = appHeight*3/4;
 mouthX2 = rightEyeX;
 mouthY2 = mouthY1;
 mouthOpen = smallerGeometryDimension*1/4;
-reset = 1;
 noseX1 = faceX;
 noseY1 = leftEyeY;
 noseX2 = noseX1 - leftEyeY*1/2;
@@ -75,10 +75,20 @@ line( mouthX1, mouthY1, mouthX2, mouthY2 ); //Notice the END CAPS
 strokeWeight(reset); //reset to 1 pixel
 //
 //Measle
-float measleX = random( appWidth*0, appWidth );
-float measleY = random( appHeight*0, appHeight );
-float measleDiameter = smallerGeometryDimension*1/25;
-color red=#FF0000, measleColour=red;
+float measleDiameter = random ( smallerGeometryDimension*1/100 , smallerGeometryDimension*1/25);
+float measleRadius = measleDiameter*1/2;
+float measleX = random( rectFaceX+measleRadius, rectFaceX+rectFaceWidth-measleRadius );
+float measleY = random( appHeight*0+measleRadius, appHeight-measleRadius );
+Boolean nightMode=false;
+//color red=#FF0000, measleColour=red;
+color measleColour = ( nightMode==false ) ? color( 255, random(0,50), random(120) ) : color( 255, random(0,50), 0 ); //ternary operator for day:night
+//
+//
+//
+color whiteReset=#000000;
 //rect();
+noStroke();
 fill(measleColour);
 ellipse( measleX, measleY, measleDiameter, measleDiameter );
+stroke(reset); //reset to 1 pixel
+fill(whiteReset); //reset to first colour (i.e. blackReset)
