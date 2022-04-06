@@ -6,13 +6,14 @@ float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter;
 float mouthX1, mouthY1, mouthX2, mouthY2, mouthOpen;
 float noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 //
+void setup () 
+{
 //Display Geometry
 fullScreen(); //displayWidth, displayHeight
 //Landscape, square or portrait
 int appWidth = width, appHeight = height; //Swap with displayWidth, displayHeight for testing
 println(width, height, displayWidth, displayHeight); //Verification of value
 println(appWidth, appHeight); //Canvas Flexibility
-//
 //Display Orientation
 //Purpose: a few comparisons of IFs to ID orientation (similar to image() aspect ratio)
 //Computer tells us the orientation, important for cell phone orientation
@@ -23,7 +24,6 @@ String orientation = ( appWidth >= appHeight ) ? ls : p; //Ternary Operator, rep
 println(DO, orientation); //Verification of value
 if ( orientation==p ) println(instruct);
 //With Strings, easier to print to console or canvas
-//
 //Variable Population
 smallerGeometryDimension = appHeight; //user told to turn phun, always landscape or square
 reset = smallerGeometryDimension / smallerGeometryDimension; // returns "1" //default value for reseting parameters
@@ -50,7 +50,62 @@ noseX2 = noseX1 - leftEyeY*1/2;
 noseY2 = faceY;
 noseX3 = noseX1 + leftEyeY*1/2;;
 noseY3 = noseY2;
+}//End setup
 //
+void draw () 
+{
+  
+}//End draw
+//
+void keyPressed () 
+{
+  
+}//End keyPressed
+//
+void mousePressed () 
+{
+
+}//End mousePressed
+//
+//End Main Program
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Face: Circle, inscribed in a square
 //Center a circle on display orientation (landscape)
 rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
@@ -100,3 +155,4 @@ fill(measleColour);
 ellipse( measleX, measleY, measleDiameter, measleDiameter );
 stroke(reset); //reset to 1 pixel
 fill(whiteReset); //reset to first colour (i.e. blackReset)
+*/
