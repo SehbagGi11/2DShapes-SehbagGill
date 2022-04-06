@@ -10,7 +10,7 @@ void display() {
   //Computer tells us the orientation, important for cell phone orientation
   //-tell user specific orientation
   //if ( appWidth >= appHeight ) {println("Landscape or Square");} else {println("Portrait");}
-  String ls="Landscape or Square", p="Portrait", DO="Display Orientation:", instruct="Bru, turn your phun";
+  String ls="Landscape or Square", p="Portrait", DO="Display Orientation:", instruct="Turn your phone bud";
   String orientation = ( appWidth >= appHeight ) ? ls : p; //Ternary Operator, repeats IF-ELSE
   println(DO, orientation); //Verification of value
   if ( orientation==p ) println(instruct);
