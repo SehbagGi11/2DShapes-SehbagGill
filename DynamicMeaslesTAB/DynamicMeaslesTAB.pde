@@ -1,4 +1,4 @@
-/Global Variables
+//Global Variables
 int appWidth, appHeight;
 //
 int reset, smallerGeometryDimension;
